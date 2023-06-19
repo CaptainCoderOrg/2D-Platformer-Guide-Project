@@ -10,6 +10,7 @@ public class PlayerMovementController : MonoBehaviour
     void Update()
     {
         float leftRight = Input.GetAxis("Horizontal");
-        transform.position += _speed * leftRight * Vector3.right * Time.deltaTime; 
+        Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody.velocity = new Vector2(leftRight * _speed, rigidbody.velocity.y);
     }
 }

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerJumpController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private float _jumpPower = 15;
+    private Rigidbody2D _rigidbody;
+
+    void Awake()
     {
-        
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -15,9 +18,7 @@ public class PlayerJumpController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Pressed space!");
-            Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
-            rigidbody.AddForce(Vector2.up, ForceMode2D.Impulse);
+            _rigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
         }
     }
 }

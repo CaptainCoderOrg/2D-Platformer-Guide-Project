@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 1585141715}
   - component: {fileID: 1585141714}
   - component: {fileID: 1585141716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1418,3 +1418,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7714fd64700e6e46872d1c540cf012e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _jumpPower: 15
+  _distanceDelta: 0.05
+  _isOnGround: 0
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 64

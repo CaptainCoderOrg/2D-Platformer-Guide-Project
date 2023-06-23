@@ -11,8 +11,6 @@ public class PlayerJumpController : MonoBehaviour
     [SerializeField]
     private float _distanceDelta;
     [SerializeField]
-    private bool _isOnGround;
-    [SerializeField]
     private LayerMask _groundMask;
 
     void Awake()
@@ -24,13 +22,17 @@ public class PlayerJumpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = _collider.bounds.extents.y + _distanceDelta;
-        Debug.DrawRay(transform.position, Vector2.down * distance, Color.green, 1);
-        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, Vector2.down, distance, _groundMask);
-        _isOnGround = raycastHit.collider != null;
-        if (Input.GetKeyDown(KeyCode.Space) && _isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && IsOnGround())
         {
             _rigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
         }
+    }
+
+    public bool IsOnGround()
+    {
+        float distance = _collider.bounds.extents.y + _distanceDelta;
+        Debug.DrawRay(transform.position, Vector2.down * distance, Color.green, 1);
+        RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, Vector2.down, distance, _groundMask);
+        return raycastHit.collider != null;
     }
 }

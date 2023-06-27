@@ -2137,6 +2137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 2021821614}
+  _minX: 3
+  _maxX: 15
 --- !u!1 &1889277327
 GameObject:
   m_ObjectHideFlags: 0
